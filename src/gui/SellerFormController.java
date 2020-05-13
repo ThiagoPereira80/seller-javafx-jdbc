@@ -154,8 +154,10 @@ public class SellerFormController implements Initializable {
 		Locale.setDefault(Locale.US);
 		txtBaseSalary.setText(String.format("%.2f", entity.getBaseSalary()));
 		if (entity.getBirthDate() != null) {
-		// dpBirthDate.setValue(LocalDate.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault()));
-		}
+			LocalDateTime localDateTime = LocalDateTime.ofInstant(entity.getBirthDate().toInstant(), ZoneId.systemDefault());
+			LocalDate localDate = localDateTime.toLocalDate();
+			dpBirthDate.setValue(localDate); 
+			}
 		
 	}
 
